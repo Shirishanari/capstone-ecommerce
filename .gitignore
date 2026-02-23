@@ -1,13 +1,18 @@
-# Maven build folder
-api-testing/target/
 
-# Logs and class files
-*.log
-*.class
 
-# IDE config files
-.idea/
+# Maven build
+target/
+
+# Surefire reports
+target/surefire-reports/
+
+# Allure test results
+allure-results/
+
+# IDE files
 .vscode/
+.idea/
+*.iml
 
 # Playwright
 node_modules/
