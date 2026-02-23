@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="269.644" tests="60" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="271.696" tests="60" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
+    <property name="webdriver.chrome.driver" value="C:\Users\NARISHIRISHA\.cache\selenium\chromedriver\win64\145.0.7632.77\chromedriver.exe"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.class.path" value="C:\Users\NARISHIRISHA\Documents\capstone\api-testing\target\test-classes;C:\Users\NARISHIRISHA\Documents\capstone\api-testing\target\classes;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-testng\2.27.0\allure-testng-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-java-commons\2.27.0\allure-java-commons-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-model\2.27.0\allure-model-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-test-filter\2.27.0\allure-test-filter-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-java\4.21.0\selenium-java-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-api\4.21.0\selenium-api-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.21.0\selenium-chrome-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.21.0\selenium-chromium-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-json\4.21.0\selenium-json-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.21.0\selenium-manager-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.21.0\selenium-devtools-v123-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.21.0\selenium-devtools-v124-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.21.0\selenium-devtools-v125-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.21.0\selenium-devtools-v85-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.21.0\selenium-edge-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.21.0\selenium-firefox-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-http\4.21.0\selenium-http-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.21.0\selenium-ie-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.21.0\selenium-remote-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\guava\guava\33.2.0-jre\guava-33.2.0-jre.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-api\1.38.0\opentelemetry-api-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-context\1.38.0\opentelemetry-context-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.38.0\opentelemetry-exporter-logging-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.38.0\opentelemetry-sdk-common-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.38.0\opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.38.0\opentelemetry-sdk-extension-autoconfigure-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.38.0-alpha\opentelemetry-api-incubator-1.38.0-alpha.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.38.0\opentelemetry-sdk-trace-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.38.0\opentelemetry-sdk-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.38.0\opentelemetry-sdk-metrics-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.38.0\opentelemetry-sdk-logs-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-os\4.21.0\selenium-os-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.21.0\selenium-safari-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-support\4.21.0\selenium-support-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\slf4j\slf4j-api\2.0.12\slf4j-api-2.0.12.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\NARISHIRISHA\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\NARISHIRISHA\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\NARISHIRISHA\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\NARISHIRISHA\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\NARISHIRISHA\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\NARISHIRISHA\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\commons\commons-compress\1.26.1\commons-compress-1.26.1.jar;C:\Users\NARISHIRISHA\.m2\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;C:\Users\NARISHIRISHA\.m2\repository\commons-io\commons-io\2.15.1\commons-io-2.15.1.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\NARISHIRISHA\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\NARISHIRISHA\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\rest-assured\5.4.0\rest-assured-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\groovy\groovy\4.0.16\groovy-4.0.16.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\groovy\groovy-xml\4.0.16\groovy-xml-4.0.16.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\NARISHIRISHA\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\NARISHIRISHA\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\json-path\5.4.0\json-path-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\groovy\groovy-json\4.0.16\groovy-json-4.0.16.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\rest-assured-common\5.4.0\rest-assured-common-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\xml-path\5.4.0\xml-path-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\NARISHIRISHA\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
@@ -15,8 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-25.0.2.10-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\NARISH~1\AppData\Local\Temp\surefire11575679767475255740\surefirebooter10644159774134290345.jar C:\Users\NARISHIRISHA\AppData\Local\Temp\surefire11575679767475255740 2026-02-23T18-19-53_596-jvmRun1 surefire6018705077248748826tmp surefire_015402952674573202311tmp"/>
+    <property name="sun.java.command" value="C:\Users\NARISHIRISHA\AppData\Local\Temp\surefire5870640815604436325\surefirebooter-20260223190441302_3.jar C:\Users\NARISHIRISHA\AppData\Local\Temp\surefire5870640815604436325 2026-02-23T19-04-40_613-jvmRun1 surefire-20260223190441302_1tmp surefire_0-20260223190441302_2tmp"/>
     <property name="jdk.debug" value="release"/>
+    <property name="test" value="*"/>
     <property name="surefire.test.class.path" value="C:\Users\NARISHIRISHA\Documents\capstone\api-testing\target\test-classes;C:\Users\NARISHIRISHA\Documents\capstone\api-testing\target\classes;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-testng\2.27.0\allure-testng-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-java-commons\2.27.0\allure-java-commons-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-model\2.27.0\allure-model-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\qameta\allure\allure-test-filter\2.27.0\allure-test-filter-2.27.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-java\4.21.0\selenium-java-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-api\4.21.0\selenium-api-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.21.0\selenium-chrome-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.21.0\selenium-chromium-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-json\4.21.0\selenium-json-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.21.0\selenium-manager-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.21.0\selenium-devtools-v123-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.21.0\selenium-devtools-v124-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.21.0\selenium-devtools-v125-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.21.0\selenium-devtools-v85-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.21.0\selenium-edge-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.21.0\selenium-firefox-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-http\4.21.0\selenium-http-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.21.0\selenium-ie-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.21.0\selenium-remote-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\guava\guava\33.2.0-jre\guava-33.2.0-jre.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-api\1.38.0\opentelemetry-api-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-context\1.38.0\opentelemetry-context-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.38.0\opentelemetry-exporter-logging-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.38.0\opentelemetry-sdk-common-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.38.0\opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.38.0\opentelemetry-sdk-extension-autoconfigure-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.38.0-alpha\opentelemetry-api-incubator-1.38.0-alpha.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.38.0\opentelemetry-sdk-trace-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.38.0\opentelemetry-sdk-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.38.0\opentelemetry-sdk-metrics-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.38.0\opentelemetry-sdk-logs-1.38.0.jar;C:\Users\NARISHIRISHA\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-os\4.21.0\selenium-os-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.21.0\selenium-safari-driver-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\seleniumhq\selenium\selenium-support\4.21.0\selenium-support-4.21.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\slf4j\slf4j-api\2.0.12\slf4j-api-2.0.12.jar;C:\Users\NARISHIRISHA\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\NARISHIRISHA\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\NARISHIRISHA\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\NARISHIRISHA\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\NARISHIRISHA\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\NARISHIRISHA\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\NARISHIRISHA\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\NARISHIRISHA\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\commons\commons-compress\1.26.1\commons-compress-1.26.1.jar;C:\Users\NARISHIRISHA\.m2\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;C:\Users\NARISHIRISHA\.m2\repository\commons-io\commons-io\2.15.1\commons-io-2.15.1.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\NARISHIRISHA\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\NARISHIRISHA\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\rest-assured\5.4.0\rest-assured-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\groovy\groovy\4.0.16\groovy-4.0.16.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\groovy\groovy-xml\4.0.16\groovy-xml-4.0.16.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\NARISHIRISHA\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\NARISHIRISHA\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\NARISHIRISHA\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\json-path\5.4.0\json-path-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\org\apache\groovy\groovy-json\4.0.16\groovy-json-4.0.16.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\rest-assured-common\5.4.0\rest-assured-common-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\io\rest-assured\xml-path\5.4.0\xml-path-5.4.0.jar;C:\Users\NARISHIRISHA\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\NARISHIRISHA\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\NARISHIRISHA"/>
@@ -30,7 +32,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\NARISH~1\AppData\Local\Temp\surefire11575679767475255740\surefirebooter10644159774134290345.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\NARISHIRISHA\AppData\Local\Temp\surefire5870640815604436325\surefirebooter-20260223190441302_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.2+10-LTS"/>
@@ -60,64 +62,499 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testCaseSensitivity" classname="com.ecommerce.tests.LoginSuiteTest" time="0.58"/>
-  <testcase name="testEmptyEmail" classname="com.ecommerce.tests.LoginSuiteTest" time="0.252"/>
-  <testcase name="testEmptyFields" classname="com.ecommerce.tests.LoginSuiteTest" time="0.123"/>
-  <testcase name="testEmptyPassword" classname="com.ecommerce.tests.LoginSuiteTest" time="0.247"/>
-  <testcase name="testInvalidEmailFormat" classname="com.ecommerce.tests.LoginSuiteTest" time="0.418"/>
-  <testcase name="testInvalidPassword" classname="com.ecommerce.tests.LoginSuiteTest" time="0.485"/>
-  <testcase name="testMultipleAttempts" classname="com.ecommerce.tests.LoginSuiteTest" time="1.622"/>
-  <testcase name="testPasswordMasked" classname="com.ecommerce.tests.LoginSuiteTest" time="0.039"/>
-  <testcase name="testSessionPersistence" classname="com.ecommerce.tests.LoginSuiteTest" time="0.604"/>
-  <testcase name="testSqlInjection" classname="com.ecommerce.tests.LoginSuiteTest" time="0.475"/>
-  <testcase name="testUnregisteredEmail" classname="com.ecommerce.tests.LoginSuiteTest" time="0.397"/>
-  <testcase name="testValidLogin" classname="com.ecommerce.tests.LoginSuiteTest" time="0.482"/>
-  <testcase name="openWebsite" classname="com.ecommerce.tests.LoginTest" time="4.069"/>
-  <testcase name="testInvalidLogin" classname="com.ecommerce.tests.LoginTest" time="4.46"/>
-  <testcase name="testValidLogin" classname="com.ecommerce.tests.LoginTest" time="4.332"/>
-  <testcase name="testValidLogin1" classname="com.ecommerce.tests.LoginTest" time="8.014"/>
-  <testcase name="testCompletedStatus" classname="com.ecommerce.tests.OrderHistoryTest" time="0.032"/>
-  <testcase name="testEachOrderHasPrice" classname="com.ecommerce.tests.OrderHistoryTest" time="0.026"/>
-  <testcase name="testEachOrderHasProduct" classname="com.ecommerce.tests.OrderHistoryTest" time="0.028"/>
-  <testcase name="testEachOrderHasStatus" classname="com.ecommerce.tests.OrderHistoryTest" time="0.027"/>
-  <testcase name="testMultipleOrders" classname="com.ecommerce.tests.OrderHistoryTest" time="0.026"/>
-  <testcase name="testNoEmptyFields" classname="com.ecommerce.tests.OrderHistoryTest" time="0.029"/>
-  <testcase name="testOrderCountConsistency" classname="com.ecommerce.tests.OrderHistoryTest" time="0.079"/>
-  <testcase name="testOrderStatusDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.046"/>
-  <testcase name="testOrdersDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.023"/>
-  <testcase name="testPageStable" classname="com.ecommerce.tests.OrderHistoryTest" time="0.023"/>
-  <testcase name="testPendingStatus" classname="com.ecommerce.tests.OrderHistoryTest" time="0.027"/>
-  <testcase name="testPriceFormat" classname="com.ecommerce.tests.OrderHistoryTest" time="0.024"/>
-  <testcase name="testProductNamesDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.023"/>
-  <testcase name="testScrollOrders" classname="com.ecommerce.tests.OrderHistoryTest" time="0.017"/>
-  <testcase name="testTotalPriceDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.053"/>
-  <testcase name="testCaseInsensitiveSearch" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.306"/>
-  <testcase name="testFilterByCategory" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.205"/>
-  <testcase name="testFilterByPriceRange" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="2.453"/>
-  <testcase name="testMaxPriceFilter" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.309"/>
-  <testcase name="testMinPriceFilter" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.318"/>
-  <testcase name="testNoResultsFound" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="2.375"/>
-  <testcase name="testSearchByKeyword" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.328"/>
-  <testcase name="testSearchNoResults" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.313"/>
-  <testcase name="testCheckoutProtectedRoute" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.167"/>
-  <testcase name="testCheckoutRequiresLogin" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.156"/>
-  <testcase name="testHomePageLoads" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.065"/>
-  <testcase name="testLoginFieldsVisible" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.254"/>
-  <testcase name="testLoginLinkVisible" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.099"/>
-  <testcase name="testLoginPageLoads" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.159"/>
-  <testcase name="testNavbarVisible" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.089"/>
-  <testcase name="testNavigateToLoginPage" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.177"/>
-  <testcase name="testNoBrokenHomeRoute" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.119"/>
-  <testcase name="testPageTitleNotEmpty" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.075"/>
-  <testcase name="testProductsPageAccessibleAfterLogin" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.664"/>
-  <testcase name="testProductsSectionVisibleAfterLogin" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.585"/>
-  <testcase name="testSearchFieldPresent" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.102"/>
-  <testcase name="testSearchProduct" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.416"/>
-  <testcase name="testAddMultipleItems" classname="com.ecommerce.tests.ShoppingCartTest" time="0.315"/>
-  <testcase name="testAddSameItemTwice" classname="com.ecommerce.tests.ShoppingCartTest" time="0.267"/>
-  <testcase name="testAddSingleItem" classname="com.ecommerce.tests.ShoppingCartTest" time="0.194"/>
-  <testcase name="testCartSyncBackend" classname="com.ecommerce.tests.ShoppingCartTest" time="0.135"/>
-  <testcase name="testEmptyCart" classname="com.ecommerce.tests.ShoppingCartTest" time="0.082"/>
-  <testcase name="testInvalidQuantity" classname="com.ecommerce.tests.ShoppingCartTest" time="0.483"/>
-  <testcase name="testUpdateQuantity" classname="com.ecommerce.tests.ShoppingCartTest" time="0.551"/>
+  <testcase name="testCaseSensitivity" classname="com.ecommerce.tests.LoginSuiteTest" time="0.495">
+    <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+Feb 23, 2026 7:04:48 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:04:48 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEmptyEmail" classname="com.ecommerce.tests.LoginSuiteTest" time="0.268">
+    <system-err><![CDATA[Feb 23, 2026 7:04:53 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:04:53 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEmptyFields" classname="com.ecommerce.tests.LoginSuiteTest" time="0.136">
+    <system-err><![CDATA[Feb 23, 2026 7:04:57 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:04:57 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEmptyPassword" classname="com.ecommerce.tests.LoginSuiteTest" time="0.249">
+    <system-err><![CDATA[Feb 23, 2026 7:05:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidEmailFormat" classname="com.ecommerce.tests.LoginSuiteTest" time="0.405">
+    <system-err><![CDATA[Feb 23, 2026 7:05:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:06 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidPassword" classname="com.ecommerce.tests.LoginSuiteTest" time="0.381">
+    <system-err><![CDATA[Feb 23, 2026 7:05:12 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:12 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testMultipleAttempts" classname="com.ecommerce.tests.LoginSuiteTest" time="1.585">
+    <system-err><![CDATA[Feb 23, 2026 7:05:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:16 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testPasswordMasked" classname="com.ecommerce.tests.LoginSuiteTest" time="0.069">
+    <system-err><![CDATA[Feb 23, 2026 7:05:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:22 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testSessionPersistence" classname="com.ecommerce.tests.LoginSuiteTest" time="0.591">
+    <system-out><![CDATA[Session Persistence Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:05:27 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:27 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testSqlInjection" classname="com.ecommerce.tests.LoginSuiteTest" time="0.306">
+    <system-err><![CDATA[Feb 23, 2026 7:05:31 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:31 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testUnregisteredEmail" classname="com.ecommerce.tests.LoginSuiteTest" time="0.411">
+    <system-err><![CDATA[Feb 23, 2026 7:05:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:36 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testValidLogin" classname="com.ecommerce.tests.LoginSuiteTest" time="0.556">
+    <system-out><![CDATA[Valid Login Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:05:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:40 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="openWebsite" classname="com.ecommerce.tests.LoginTest" time="5.118">
+    <system-out><![CDATA[Website opened successfully
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:05:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:46 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidLogin" classname="com.ecommerce.tests.LoginTest" time="4.592">
+    <system-out><![CDATA[Invalid Login Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:05:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testValidLogin" classname="com.ecommerce.tests.LoginTest" time="4.208">
+    <system-out><![CDATA[Login Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:05:54 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:54 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testValidLogin1" classname="com.ecommerce.tests.LoginTest" time="8.292">
+    <system-err><![CDATA[Feb 23, 2026 7:05:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:05:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testCompletedStatus" classname="com.ecommerce.tests.OrderHistoryTest" time="0.028">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:07 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEachOrderHasPrice" classname="com.ecommerce.tests.OrderHistoryTest" time="0.029">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:11 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:11 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEachOrderHasProduct" classname="com.ecommerce.tests.OrderHistoryTest" time="0.052">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:15 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEachOrderHasStatus" classname="com.ecommerce.tests.OrderHistoryTest" time="0.019">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:20 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:20 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testMultipleOrders" classname="com.ecommerce.tests.OrderHistoryTest" time="0.028">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:24 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testNoEmptyFields" classname="com.ecommerce.tests.OrderHistoryTest" time="0.017">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:28 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:28 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testOrderCountConsistency" classname="com.ecommerce.tests.OrderHistoryTest" time="0.083">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:33 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testOrderStatusDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.023">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:37 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testOrdersDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.026">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:42 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:42 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testPageStable" classname="com.ecommerce.tests.OrderHistoryTest" time="0.016">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:46 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testPendingStatus" classname="com.ecommerce.tests.OrderHistoryTest" time="0.03">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testPriceFormat" classname="com.ecommerce.tests.OrderHistoryTest" time="0.021">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testProductNamesDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.029">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:06:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:06:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testScrollOrders" classname="com.ecommerce.tests.OrderHistoryTest" time="0.016">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:04 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testTotalPriceDisplayed" classname="com.ecommerce.tests.OrderHistoryTest" time="0.035">
+    <system-out><![CDATA[Login successful
+Navigated to Orders page
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:08 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:08 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testCaseInsensitiveSearch" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.463">
+    <system-out><![CDATA[Case Insensitive Search Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:13 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:13 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testFilterByCategory" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.191">
+    <system-out><![CDATA[Category Filter Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:17 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:17 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testFilterByPriceRange" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="2.486">
+    <system-out><![CDATA[Price Range Filter Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:21 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:21 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testMaxPriceFilter" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.342">
+    <system-out><![CDATA[Maximum Price Filter Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:28 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:28 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testMinPriceFilter" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.287">
+    <system-out><![CDATA[Minimum Price Filter Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:32 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:32 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testNoResultsFound" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="2.341">
+    <system-out><![CDATA[Products found: 0
+No Results Scenario Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:36 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testSearchByKeyword" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.254">
+    <system-out><![CDATA[Search by Keyword Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:42 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:42 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testSearchNoResults" classname="com.ecommerce.tests.ProductSearchSuiteTest" time="0.316">
+    <system-out><![CDATA[Search No Results Test Passed
+]]></system-out>
+    <system-err><![CDATA[Feb 23, 2026 7:07:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:46 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testCheckoutProtectedRoute" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.165">
+    <system-err><![CDATA[Feb 23, 2026 7:07:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testCheckoutRequiresLogin" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.372">
+    <system-err><![CDATA[Feb 23, 2026 7:07:54 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:54 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testHomePageLoads" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.057">
+    <system-err><![CDATA[Feb 23, 2026 7:07:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:07:58 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testLoginFieldsVisible" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.217">
+    <system-err><![CDATA[Feb 23, 2026 7:08:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testLoginLinkVisible" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.092">
+    <system-err><![CDATA[Feb 23, 2026 7:08:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:06 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testLoginPageLoads" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.156">
+    <system-err><![CDATA[Feb 23, 2026 7:08:10 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:10 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testNavbarVisible" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.089">
+    <system-err><![CDATA[Feb 23, 2026 7:08:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:14 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testNavigateToLoginPage" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.164">
+    <system-err><![CDATA[Feb 23, 2026 7:08:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testNoBrokenHomeRoute" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.106">
+    <system-err><![CDATA[Feb 23, 2026 7:08:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:22 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testPageTitleNotEmpty" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.043">
+    <system-err><![CDATA[Feb 23, 2026 7:08:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:26 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testProductsPageAccessibleAfterLogin" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.725">
+    <system-err><![CDATA[Feb 23, 2026 7:08:31 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:31 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testProductsSectionVisibleAfterLogin" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.622">
+    <system-err><![CDATA[Feb 23, 2026 7:08:35 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:35 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testSearchFieldPresent" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.073">
+    <system-err><![CDATA[Feb 23, 2026 7:08:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:39 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testSearchProduct" classname="com.ecommerce.tests.PurchaseFlowSuiteTest" time="0.382">
+    <system-err><![CDATA[Feb 23, 2026 7:08:43 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:43 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testAddMultipleItems" classname="com.ecommerce.tests.ShoppingCartTest" time="0.278">
+    <system-err><![CDATA[Feb 23, 2026 7:08:48 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:48 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testAddSameItemTwice" classname="com.ecommerce.tests.ShoppingCartTest" time="0.217">
+    <system-err><![CDATA[Feb 23, 2026 7:08:52 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:52 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testAddSingleItem" classname="com.ecommerce.tests.ShoppingCartTest" time="0.192">
+    <system-err><![CDATA[Feb 23, 2026 7:08:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:56 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testCartSyncBackend" classname="com.ecommerce.tests.ShoppingCartTest" time="0.104">
+    <system-err><![CDATA[Feb 23, 2026 7:08:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:08:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEmptyCart" classname="com.ecommerce.tests.ShoppingCartTest" time="0.032">
+    <system-err><![CDATA[Feb 23, 2026 7:09:03 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:09:03 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidQuantity" classname="com.ecommerce.tests.ShoppingCartTest" time="0.439">
+    <system-err><![CDATA[Feb 23, 2026 7:09:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:09:07 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testUpdateQuantity" classname="com.ecommerce.tests.ShoppingCartTest" time="0.495">
+    <system-err><![CDATA[Feb 23, 2026 7:09:12 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 145
+Feb 23, 2026 7:09:12 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 145.0.7632.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
 </testsuite>
