@@ -24,7 +24,18 @@ jobs:
       uses: nanasess/setup-chromedriver@v1
       with:
         chromedriver-version: 'LATEST'
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+       node-version: '18'
 
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start application
+      run: |
+          npm start &
+          sleep 15
     - name: Build project
       run: mvn clean install
 
