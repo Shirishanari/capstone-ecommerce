@@ -1,0 +1,20 @@
+# Maven build folder
+api-testing/target/
+
+# Logs and class files
+*.log
+*.class
+
+# IDE config files
+.idea/
+.vscode/
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+

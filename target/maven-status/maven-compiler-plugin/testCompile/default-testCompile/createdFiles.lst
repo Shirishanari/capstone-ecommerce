@@ -1,0 +1,6 @@
+com\ecommerce\tests\LoginSuiteTest.class
+com\ecommerce\tests\PurchaseFlowSuiteTest.class
+com\ecommerce\tests\ShoppingCartTest.class
+com\ecommerce\tests\LoginTest.class
+com\ecommerce\tests\OrderHistoryTest.class
+com\ecommerce\tests\ProductSearchSuiteTest.class
