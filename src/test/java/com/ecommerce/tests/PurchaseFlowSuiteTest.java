@@ -120,7 +120,7 @@ public class PurchaseFlowSuiteTest {
 
     @Test
     public void testCheckoutRequiresLogin() {
-        driver.get("http://localhost:3000/checkout");
+        driver.get(TestUtil.BASE_URL + "checkout");
         Assert.assertTrue(driver.getCurrentUrl().contains("login")
                 || driver.getCurrentUrl().contains("checkout"));
     }

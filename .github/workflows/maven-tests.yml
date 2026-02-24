@@ -7,6 +7,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd="mongosh --eval 'db.adminCommand({ping:1})'"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
 
     steps:
     - name: Checkout code
@@ -39,10 +49,13 @@ jobs:
         npm install
 
     - name: Start backend and frontend servers
+      env:
+        MONGODB_URI: mongodb://localhost:27017/ecommerce
       run: |
-        # launch both servers in background
-        cd backend && npm start &
-        cd ../frontend && npm start &
+        # launch backend and frontend using explicit prefixes so path doesn't matter
+        npm --prefix backend start &
+        npm --prefix frontend start &
+
         # wait for backend to accept connections
         echo "Waiting for backend on port 5000..."
         for i in {1..30}; do
@@ -52,6 +65,7 @@ jobs:
           fi
           sleep 1
         done
+
         # wait for frontend to accept connections
         echo "Waiting for frontend on port 3000..."
         for i in {1..30}; do
