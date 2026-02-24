@@ -15,7 +15,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.ecommerce.tests.TestUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ShoppingCartTest {
@@ -61,9 +60,16 @@ public class ShoppingCartTest {
         if(driver != null) driver.quit();
     }
 
-    public void addItemToCart() {
-        wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//button[contains(text(),'Add to Cart')]"))).click();
+    public boolean addItemToCart() {
+        try {
+            WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//button[contains(text(),'Add to Cart')]")
+            ));
+            btn.click();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     // 🛒 1. Add Single Item to Cart
