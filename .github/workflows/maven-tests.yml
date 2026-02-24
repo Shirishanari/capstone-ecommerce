@@ -18,28 +18,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Install Google Chrome
-      run: |
-        sudo apt update
-        sudo apt install -y google-chrome-stable
-
-    - name: Install ChromeDriver
-      run: |
-        # Get Chrome major version only
-        CHROME_MAJOR=$(google-chrome --version | grep -oP '\d+' | head -1)
-        echo "Detected Chrome major version: $CHROME_MAJOR"
-
-        # Get latest matching ChromeDriver
-        CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAJOR)
-        echo "Installing ChromeDriver version: $CHROMEDRIVER_VERSION"
-
-        # Download & install
-        wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip -P ~/
-        unzip -o ~/chromedriver_linux64.zip -d ~/
-        sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
-        sudo chmod +x /usr/local/bin/chromedriver
-        chromedriver --version
-
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
@@ -47,6 +25,11 @@ jobs:
 
     - name: Install frontend dependencies
       run: npm ci
+
+    - name: Install Chrome + ChromeDriver
+      uses: nanasess/setup-chromedriver@v1
+      with:
+        chrome-version: stable   # automatically picks a driver matching Chrome
 
     - name: Start frontend app
       run: |
