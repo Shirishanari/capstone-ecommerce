@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,55 +17,44 @@ import junit.framework.Assert;
 
 public class LoginTest {
 
-    @Test
-    public void openWebsite() {
+    WebDriver driver;
+    WebDriverWait wait;
 
-       WebDriverManager.chromedriver().setup();
+    @BeforeMethod
+    public void setup() {
+        // ✅ Setup ChromeDriver automatically
+        WebDriverManager.chromedriver().setup();
 
+        // ✅ Headless + CI friendly options
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");   // IMPORTANT
+        options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
 
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.get("http://localhost:3000/");
-        System.out.println("Website opened successfully");
-
-        driver.quit();
-    }
-    
-     @Test
-    public void testValidLogin1() throws InterruptedException {
-
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("http://localhost:3000/");
-        driver.manage().window().maximize();
-
-        Thread.sleep(2000);
-
-        // Click on Login button/link (update locator if needed)
-        driver.findElement(By.linkText("Login")).click();
-
-        Thread.sleep(2000);
-
-        driver.quit();
     }
 
+    @AfterMethod
+    public void teardown() {
+        if (driver != null) driver.quit();
+    }
+
+    // ✅ 1. Open Website
+    @Test
+    public void openWebsite() {
+        System.out.println("Website opened successfully: " + driver.getCurrentUrl());
+    }
+
+    // ✅ 2. Valid Login
     @Test
     public void testValidLogin() {
-
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/");
-        driver.manage().window().maximize();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        // 🔁 Try multiple ways to click Login
+        // Navigate to Login page
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//a[contains(text(),'Login') or contains(text(),'Sign In')]")
         )).click();
@@ -75,26 +66,18 @@ public class LoginTest {
         // Enter Password
         driver.findElement(By.name("password")).sendKeys("password123");
 
-        // 🔁 Try flexible locator for button
+        // Click Login button
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//button[contains(.,'Login') or contains(.,'Sign In') or @type='submit']")
         )).click();
 
         System.out.println("Login Test Passed");
-
-        driver.quit();
     }
 
+    // ✅ 3. Invalid Login
     @Test
     public void testInvalidLogin() {
-
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/");
-        driver.manage().window().maximize();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        // Click Login
+        // Navigate to Login page
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//a[contains(text(),'Login') or contains(text(),'Sign In')]")
         )).click();
@@ -111,14 +94,10 @@ public class LoginTest {
                 By.xpath("//button[@type='submit']")
         )).click();
 
-        // ✅ Check that user is still on login page (login failed)
+        // ✅ Check still on login page
         String currentUrl = driver.getCurrentUrl();
-
         Assert.assertTrue(currentUrl.contains("login"));
 
         System.out.println("Invalid Login Test Passed");
-
-        driver.quit();
     }
 }
-

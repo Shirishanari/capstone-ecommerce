@@ -5,12 +5,15 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginSuiteTest {
 
@@ -19,9 +22,20 @@ public class LoginSuiteTest {
 
     @BeforeMethod
     public void setup() {
-        driver = new ChromeDriver();
+        // ✅ Setup ChromeDriver automatically
+        WebDriverManager.chromedriver().setup();
+
+        // ✅ ChromeOptions for headless CI-friendly run
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new"); // run in headless mode
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+
+        driver = new ChromeDriver(options);
         driver.get("http://localhost:3000/");
         driver.manage().window().maximize();
+
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Navigate to Login page
@@ -32,31 +46,30 @@ public class LoginSuiteTest {
 
     @AfterMethod
     public void teardown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     // ✅ 1. Valid Login
     @Test
     public void testValidLogin() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")))
+                .sendKeys("testuser@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("password123");
 
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")))
-            .sendKeys("testuser@gmail.com");
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[@type='submit']")
+        )).click();
 
-    driver.findElement(By.name("password")).sendKeys("password123");
+        Assert.assertTrue(
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
+            )).isDisplayed()
+        );
 
-    wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//button[@type='submit']")
-    )).click();
-
-    // ✅ Wait for successful login (element on home page)
-    Assert.assertTrue(
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
-        )).isDisplayed()
-    );
-
-    System.out.println("Valid Login Test Passed");
-}
+        System.out.println("Valid Login Test Passed");
+    }
 
     // ❌ 2. Invalid Password
     @Test
@@ -65,7 +78,6 @@ public class LoginSuiteTest {
         driver.findElement(By.name("password")).sendKeys("wrongpass");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -76,7 +88,6 @@ public class LoginSuiteTest {
         driver.findElement(By.name("password")).sendKeys("password123");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -84,9 +95,7 @@ public class LoginSuiteTest {
     @Test
     public void testEmptyEmail() {
         driver.findElement(By.name("password")).sendKeys("password123");
-
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -94,9 +103,7 @@ public class LoginSuiteTest {
     @Test
     public void testEmptyPassword() {
         driver.findElement(By.name("email")).sendKeys("testuser@gmail.com");
-
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -104,7 +111,6 @@ public class LoginSuiteTest {
     @Test
     public void testEmptyFields() {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -115,7 +121,6 @@ public class LoginSuiteTest {
         driver.findElement(By.name("password")).sendKeys("password123");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -128,39 +133,30 @@ public class LoginSuiteTest {
 
     // 🔁 9. Refresh After Login
     @Test
-public void testSessionPersistence() {
+    public void testSessionPersistence() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")))
+                .sendKeys("testuser@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("password123");
 
-    // Enter login details
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")))
-            .sendKeys("testuser@gmail.com");
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[@type='submit']")
+        )).click();
 
-    driver.findElement(By.name("password")).sendKeys("password123");
-
-    // Click login
-    wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//button[@type='submit']")
-    )).click();
-
-    // ✅ Wait for login success (important)
-    wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
-    ));
-
-    // Refresh page
-    driver.navigate().refresh();
-
-    // ✅ Check session still exists
-    Assert.assertTrue(
         wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
-        )).isDisplayed(),
-        "Session not maintained after refresh"
-    );
+                By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
+        ));
 
-    System.out.println("Session Persistence Test Passed");
-}
+        driver.navigate().refresh();
 
+        Assert.assertTrue(
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
+            )).isDisplayed(),
+            "Session not maintained after refresh"
+        );
 
+        System.out.println("Session Persistence Test Passed");
+    }
 
     // 🚫 10. SQL Injection Attempt
     @Test
@@ -169,7 +165,6 @@ public void testSessionPersistence() {
         driver.findElement(By.name("password")).sendKeys("anything");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -180,9 +175,7 @@ public void testSessionPersistence() {
         driver.findElement(By.name("password")).sendKeys("password123");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
-        // depends on system (adjust if needed)
-        Assert.assertTrue(true);
+        Assert.assertTrue(true); // Adjust based on system behavior
     }
 
     // 🔄 12. Multiple Login Attempts
@@ -197,7 +190,6 @@ public void testSessionPersistence() {
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
         }
-
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 }

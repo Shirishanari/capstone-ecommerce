@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +17,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class ProductSearchSuiteTest {
 
     WebDriver driver;
@@ -23,32 +26,39 @@ public class ProductSearchSuiteTest {
 
     @BeforeMethod
     public void setup() {
-        driver = new ChromeDriver();
-        driver.get("http://localhost:3000/");
+        // ✅ WebDriverManager setup
+        WebDriverManager.chromedriver().setup();
+
+        // ✅ Headless + CI friendly Chrome
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.get("http://localhost:3000/");
     }
 
     @AfterMethod
     public void teardown() {
-        driver.quit();
+        if(driver != null) driver.quit();
     }
 
     // ✅ 1. Search Product by Keyword
     @Test
     public void testSearchByKeyword() {
-
         WebElement searchBox = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//input[@type='text']")
-                )
+                ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']"))
         );
 
         searchBox.clear();
         searchBox.sendKeys("Laptop");
         searchBox.sendKeys(Keys.ENTER);
 
-        // Wait for results to update
         wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//*[contains(text(),'Laptop') or contains(text(),'No')]")
         ));
@@ -57,26 +67,19 @@ public class ProductSearchSuiteTest {
                 By.xpath("//*[contains(text(),'Laptop')]")
         );
 
-        Assert.assertTrue(products.size() > 0,
-                "No products found for keyword search");
-
-        System.out.println("Search by Keyword Test Passed");
+        Assert.assertTrue(products.size() > 0, "No products found for keyword search");
     }
 
     // ✅ 2. Filter by Category
     @Test
     public void testFilterByCategory() {
-
         WebElement dropdown = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//select")
-                )
+                ExpectedConditions.elementToBeClickable(By.xpath("//select"))
         );
 
         Select select = new Select(dropdown);
         select.selectByVisibleText("Electronics");
 
-        // Wait for category results
         wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//*[contains(text(),'Electronics')]")
         ));
@@ -85,182 +88,95 @@ public class ProductSearchSuiteTest {
                 By.xpath("//*[contains(text(),'Electronics')]")
         );
 
-        Assert.assertTrue(products.size() > 0,
-                "No products found for selected category");
-
-        System.out.println("Category Filter Test Passed");
+        Assert.assertTrue(products.size() > 0, "No products found for selected category");
     }
 
-    // ✅ 3. Filter by Price Range
+    // ✅ 4. No Results Found
     @Test
-    public void testFilterByPriceRange() throws InterruptedException {
-
-        WebElement min = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//input[contains(@placeholder,'Min') or contains(@name,'min')]")
-                )
+    public void testNoResultsFound() {
+        WebElement searchBox = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']"))
         );
 
-        WebElement max = driver.findElement(
-                By.xpath("//input[contains(@placeholder,'Max') or contains(@name,'max')]")
+        searchBox.clear();
+        searchBox.sendKeys("InvalidProduct123");
+        searchBox.sendKeys(Keys.ENTER);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
+
+        List<WebElement> products = driver.findElements(
+                By.xpath("//div[contains(@class,'card') or contains(@class,'product')]")
+        );
+
+        Assert.assertTrue(products.isEmpty(), "Products displayed for invalid search");
+    }
+
+    // ✅ 5. Case Insensitive Search
+    @Test
+    public void testCaseInsensitiveSearch() {
+        WebElement searchBox = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']"))
+        );
+
+        searchBox.clear();
+        searchBox.sendKeys("pHoNe");
+        searchBox.sendKeys(Keys.ENTER);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//*[contains(translate(text(),'PHONE','phone'),'phone')]")
+        ));
+
+        List<WebElement> products = driver.findElements(
+                By.xpath("//*[contains(translate(text(),'PHONE','phone'),'phone')]")
+        );
+
+        Assert.assertTrue(products.size() > 0, "Case insensitive search failed");
+    }
+
+    // ✅ 6. Min Price Filter
+    @Test
+    public void testMinPriceFilter() {
+        WebElement min = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//input[contains(@name,'min')]"))
         );
 
         min.clear();
-        min.sendKeys("1000");
-
-        max.clear();
-        max.sendKeys("5000");
-        max.sendKeys(Keys.ENTER);
-
-        // Wait for price update
-        Thread.sleep(2000); // temporary wait for React render
+        min.sendKeys("1000", Keys.ENTER);
 
         List<WebElement> prices = driver.findElements(
-                By.xpath("//*[contains(text(),'₹') or contains(text(),'$')]")
+                By.xpath("//span[contains(@class,'price')]")
         );
 
         for (WebElement price : prices) {
-            String priceText = price.getText().replaceAll("[^0-9]", "");
-            if (!priceText.isEmpty()) {
-                int actualPrice = Integer.parseInt(priceText);
-                Assert.assertTrue(actualPrice >= 1000 && actualPrice <= 5000,
-                        "Price out of selected range");
+            String amount = price.getText().replaceAll("[^0-9]", "");
+            if (!amount.isEmpty()) {
+                int value = Integer.parseInt(amount);
+                Assert.assertTrue(value >= 1000, "Product below min price found");
             }
         }
-
-        System.out.println("Price Range Filter Test Passed");
     }
+    
 
-   @Test
-    public void testNoResultsFound() {
+    // ✅ 7. Max Price Filter
+    @Test
+    public void testMaxPriceFilter() {
+        WebElement max = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//input[contains(@name,'max')]"))
+        );
 
-    WebElement searchBox = wait.until(
-            ExpectedConditions.elementToBeClickable(
-                    By.xpath("//input[@type='text']")
-            )
-    );
+        max.clear();
+        max.sendKeys("1500", Keys.ENTER);
 
-    searchBox.clear();
-    searchBox.sendKeys("InvalidProduct123");
-    searchBox.sendKeys(Keys.ENTER);
+        List<WebElement> prices = driver.findElements(
+                By.xpath("//span[contains(@class,'price')]")
+        );
 
-    // Small wait for React rendering
-    try { Thread.sleep(2000); } catch (InterruptedException e) {}
-
-    List<WebElement> products = driver.findElements(
-            By.xpath("//div[contains(@class,'card') or contains(@class,'product')]")
-    );
-
-    System.out.println("Products found: " + products.size());
-
-    Assert.assertTrue(products.isEmpty(),
-            "Products are displayed even for invalid search");
-
-    System.out.println("No Results Scenario Test Passed");
-}
-
-@Test
-public void testSearchNoResults() {
-
-    WebElement searchBox = wait.until(
-            ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']"))
-    );
-
-    searchBox.clear();
-    searchBox.sendKeys("asdhjkasdhjkashd"); // random string
-    searchBox.sendKeys(Keys.ENTER);
-
-    List<WebElement> products = driver.findElements(
-            By.xpath("//*[contains(text(),'asdhjkasdhjkashd')]")
-    );
-
-    Assert.assertTrue(products.size() == 0,
-            "Unexpected results found for invalid search");
-
-    System.out.println("Search No Results Test Passed");
-}
- 
-
-@Test
-public void testMinPriceFilter() {
-
-    WebElement min = wait.until(
-            ExpectedConditions.elementToBeClickable(
-                    By.xpath("//input[contains(@name,'min')]"))
-    );
-
-    min.clear();
-    min.sendKeys("1000");
-    min.sendKeys(Keys.ENTER);
-
-    // Validate price elements
-    List<WebElement> prices = driver.findElements(
-            By.xpath("//span[contains(@class,'price')]")
-    );
-
-    for (WebElement price : prices) {
-        String amount = price.getText().replaceAll("[^0-9]", "");
-        if (!amount.isEmpty()) {
-            int value = Integer.parseInt(amount);
-            Assert.assertTrue(value >= 1000,
-                    "Product below min price found");
+        for (WebElement price : prices) {
+            String amount = price.getText().replaceAll("[^0-9]", "");
+            if (!amount.isEmpty()) {
+                int value = Integer.parseInt(amount);
+                Assert.assertTrue(value <= 1500, "Product above max price found");
+            }
         }
     }
-
-    System.out.println("Minimum Price Filter Test Passed");
-}
- 
-@Test
-public void testMaxPriceFilter() {
-
-    WebElement max = wait.until(
-            ExpectedConditions.elementToBeClickable(
-                    By.xpath("//input[contains(@name,'max')]"))
-    );
-
-    max.clear();
-    max.sendKeys("1500");
-    max.sendKeys(Keys.ENTER);
-
-    List<WebElement> prices = driver.findElements(
-            By.xpath("//span[contains(@class,'price')]")
-    );
-
-    for (WebElement price : prices) {
-        String amount = price.getText().replaceAll("[^0-9]", "");
-        if (!amount.isEmpty()) {
-            int value = Integer.parseInt(amount);
-            Assert.assertTrue(value <= 1500,
-                    "Product above max price found");
-        }
-    }
-
-    System.out.println("Maximum Price Filter Test Passed");
-}
-@Test
-public void testCaseInsensitiveSearch() {
-
-    WebElement searchBox = wait.until(
-            ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']"))
-    );
-
-    searchBox.clear();
-    searchBox.sendKeys("pHoNe");
-    searchBox.sendKeys(Keys.ENTER);
-
-    wait.until(ExpectedConditions.presenceOfElementLocated(
-            By.xpath("//*[contains(translate(text(),'PHONE','phone'),'phone')]")
-    ));
-
-    List<WebElement> products = driver.findElements(
-            By.xpath("//*[contains(translate(text(),'PHONE','phone'),'phone')]")
-    );
-
-    Assert.assertTrue(products.size() > 0,
-            "Case insensitive search failed");
-
-    System.out.println("Case Insensitive Search Test Passed");
-}
-
-
 }

@@ -7,12 +7,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class OrderHistoryTest {
 
@@ -21,81 +24,89 @@ public class OrderHistoryTest {
 
     @BeforeMethod
     public void setup() {
-    driver = new ChromeDriver();
-    driver.get("http://localhost:3000/");
-    driver.manage().window().maximize();
+        // ✅ Setup ChromeDriver automatically
+        WebDriverManager.chromedriver().setup();
 
-    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        // ✅ Headless + CI friendly
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
 
-    // Go to login page
-    wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//a[contains(text(),'Login') or contains(text(),'Sign In')]")
-    )).click();
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
 
-    // Enter email
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")))
-            .sendKeys("testuser@gmail.com");
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-    // Enter password
-    driver.findElement(By.name("password")).sendKeys("password123");
+        // Navigate to website
+        driver.get("http://localhost:3000/");
 
-    // Click login
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
+        // Login
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//a[contains(text(),'Login') or contains(text(),'Sign In')]")
+        )).click();
 
-    // ✅ Wait for login success
-    wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
-    ));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")))
+                .sendKeys("testuser@gmail.com");
 
-    System.out.println("Login successful");
+        driver.findElement(By.name("password")).sendKeys("password123");
 
-    // 🚀 IMPORTANT: Directly open Orders page (NO CLICK)
-    driver.get("http://localhost:3000/orders");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-    // ✅ Wait for page load
-    wait.until(ExpectedConditions.or(
-            ExpectedConditions.presenceOfElementLocated(By.tagName("body")),
-            ExpectedConditions.urlContains("orders")
-    ));
+        // Wait for login success
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(text(),'Products') or contains(text(),'Logout')]")
+        ));
 
-    System.out.println("Navigated to Orders page");
-}
+        System.out.println("Login successful");
+
+        // Go to Orders page directly
+        driver.get("http://localhost:3000/orders");
+
+        // Wait for Orders page load
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.presenceOfElementLocated(By.tagName("body")),
+                ExpectedConditions.urlContains("orders")
+        ));
+
+        System.out.println("Navigated to Orders page");
+    }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if (driver != null) driver.quit();
     }
 
-
-    // 2️⃣ Orders List Displayed
+    // ✅ 2. Orders List Displayed
     @Test
     public void testOrdersDisplayed() {
         List<WebElement> orders = driver.findElements(By.className("order-card"));
         Assert.assertTrue(orders.size() >= 0);
     }
 
-    // 3️⃣ Validate Product Names Present
+    // ✅ 3. Product Names Displayed
     @Test
     public void testProductNamesDisplayed() {
         List<WebElement> products = driver.findElements(By.className("product-name"));
         Assert.assertTrue(products.size() >= 0);
     }
 
-    // 4️⃣ Validate Total Price Exists
+    // ✅ 4. Total Price Displayed
     @Test
     public void testTotalPriceDisplayed() {
         List<WebElement> prices = driver.findElements(By.className("total-price"));
         Assert.assertTrue(prices.size() >= 0);
     }
 
-    // 5️⃣ Validate Order Status Exists
+    // ✅ 5. Order Status Displayed
     @Test
     public void testOrderStatusDisplayed() {
         List<WebElement> status = driver.findElements(By.className("order-status"));
         Assert.assertTrue(status.size() >= 0);
     }
 
-    // 6️⃣ Check Pending Status
+    // ✅ 6. Pending Status Exists
     @Test
     public void testPendingStatus() {
         List<WebElement> status = driver.findElements(By.className("order-status"));
@@ -108,7 +119,7 @@ public class OrderHistoryTest {
         Assert.assertTrue(true); // pass even if none
     }
 
-    // 7️⃣ Check Completed Status
+    // ✅ 7. Completed Status Exists
     @Test
     public void testCompletedStatus() {
         List<WebElement> status = driver.findElements(By.className("order-status"));
@@ -121,7 +132,7 @@ public class OrderHistoryTest {
         Assert.assertTrue(true);
     }
 
-    // 8️⃣ Validate Price Format
+    // ✅ 8. Price Format
     @Test
     public void testPriceFormat() {
         List<WebElement> prices = driver.findElements(By.className("total-price"));
@@ -130,36 +141,35 @@ public class OrderHistoryTest {
         }
     }
 
-    // 9️⃣ Validate Multiple Orders
+    // ✅ 9. Multiple Orders
     @Test
     public void testMultipleOrders() {
         List<WebElement> orders = driver.findElements(By.className("order-card"));
         Assert.assertTrue(orders.size() >= 0);
     }
 
-  
-    // 11️⃣ Validate Each Order Has Product
+    // ✅ 11. Each Order Has Product
     @Test
     public void testEachOrderHasProduct() {
         List<WebElement> products = driver.findElements(By.className("product-name"));
         Assert.assertTrue(products.size() >= 0);
     }
 
-    // 12️⃣ Validate Each Order Has Price
+    // ✅ 12. Each Order Has Price
     @Test
     public void testEachOrderHasPrice() {
         List<WebElement> prices = driver.findElements(By.className("total-price"));
         Assert.assertTrue(prices.size() >= 0);
     }
 
-    // 13️⃣ Validate Each Order Has Status
+    // ✅ 13. Each Order Has Status
     @Test
     public void testEachOrderHasStatus() {
         List<WebElement> status = driver.findElements(By.className("order-status"));
         Assert.assertTrue(status.size() >= 0);
     }
 
-    // 16️⃣ Validate Order Count Stability
+    // ✅ 16. Order Count Stability
     @Test
     public void testOrderCountConsistency() {
         int before = driver.findElements(By.className("order-card")).size();
@@ -169,7 +179,7 @@ public class OrderHistoryTest {
         Assert.assertEquals(before, after);
     }
 
-    // 17️⃣ Validate Text Not Empty
+    // ✅ 17. Text Not Empty
     @Test
     public void testNoEmptyFields() {
         List<WebElement> orders = driver.findElements(By.className("order-card"));
@@ -178,7 +188,7 @@ public class OrderHistoryTest {
         }
     }
 
-    // 19️⃣ Validate Scroll Works
+    // ✅ 19. Scroll Works
     @Test
     public void testScrollOrders() {
         ((org.openqa.selenium.JavascriptExecutor)driver)
@@ -186,7 +196,7 @@ public class OrderHistoryTest {
         Assert.assertTrue(true);
     }
 
-    // 20️⃣ Validate Page Not Crashing
+    // ✅ 20. Page Not Crashing
     @Test
     public void testPageStable() {
         Assert.assertTrue(driver.getTitle().length() > 0);

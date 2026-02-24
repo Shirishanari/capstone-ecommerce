@@ -6,12 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PurchaseFlowSuiteTest {
 
@@ -20,21 +23,30 @@ public class PurchaseFlowSuiteTest {
 
     @BeforeMethod
     public void setup() {
+        // ✅ WebDriverManager setup
+        WebDriverManager.chromedriver().setup();
 
-        driver = new ChromeDriver();
+        // ✅ Headless Chrome for CI
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("http://localhost:3000/");
+
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.get("http://localhost:3000/");
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if(driver != null) driver.quit();
     }
 
     // ---------- Helper: Login ----------
     public void login() {
-
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//a[contains(text(),'Login') or contains(text(),'Sign In')]")))
                 .click();
@@ -52,7 +64,7 @@ public class PurchaseFlowSuiteTest {
                         By.xpath("//*[contains(text(),'Products')]"))));
     }
 
-    // ================= 20 SAFE TESTS ================= //
+    // ================= TEST CASES ================= //
 
     @Test
     public void testHomePageLoads() {
@@ -73,8 +85,6 @@ public class PurchaseFlowSuiteTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
-   
-
     @Test
     public void testProductsSectionVisibleAfterLogin() {
         login();
@@ -88,13 +98,12 @@ public class PurchaseFlowSuiteTest {
                 || driver.getCurrentUrl().contains("checkout"));
     }
 
-    // 2️⃣ Login Page Loads
     @Test
     public void testLoginPageLoads() {
         driver.get("http://localhost:3000/login");
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
- // 6️⃣ Search Field Present
+
     @Test
     public void testSearchFieldPresent() {
         WebElement search = wait.until(
@@ -102,7 +111,6 @@ public class PurchaseFlowSuiteTest {
         Assert.assertTrue(search.isDisplayed());
     }
 
-    // 7️⃣ Search Product
     @Test
     public void testSearchProduct() {
         driver.findElement(By.name("search")).sendKeys("Laptop");
@@ -110,7 +118,6 @@ public class PurchaseFlowSuiteTest {
         Assert.assertTrue(driver.getPageSource().toLowerCase().contains("laptop"));
     }
 
-    // 9️⃣ Checkout Page Requires Login
     @Test
     public void testCheckoutRequiresLogin() {
         driver.get("http://localhost:3000/checkout");
@@ -118,32 +125,27 @@ public class PurchaseFlowSuiteTest {
                 || driver.getCurrentUrl().contains("checkout"));
     }
 
-    // 1️⃣6️⃣ Navbar Visible
     @Test
     public void testNavbarVisible() {
         Assert.assertTrue(driver.getPageSource().contains("Home")
                 || driver.getPageSource().contains("Cart"));
     }
 
-    // 1️⃣7️⃣ Login Fields Visible
     @Test
     public void testLoginFieldsVisible() {
         driver.get("http://localhost:3000/login");
 
-        WebElement email = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.name("email")));
+        WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
         WebElement password = driver.findElement(By.name("password"));
 
         Assert.assertTrue(email.isDisplayed());
         Assert.assertTrue(password.isDisplayed());
     }
 
-    // 2️⃣0️⃣ Page Title Not Empty
     @Test
     public void testPageTitleNotEmpty() {
         Assert.assertFalse(driver.getTitle().isEmpty());
     }
-
 
     @Test
     public void testProductsPageAccessibleAfterLogin() {
@@ -155,6 +157,6 @@ public class PurchaseFlowSuiteTest {
     @Test
     public void testNoBrokenHomeRoute() {
         driver.get("http://localhost:3000/");
-        Assert.assertEquals(driver.getTitle().length() > 0, true);
+        Assert.assertTrue(driver.getTitle().length() > 0);
     }
 }
