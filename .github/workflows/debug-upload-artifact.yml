@@ -1,0 +1,21 @@
+name: Debug upload-artifact usage
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+
+jobs:
+  find-v3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Search for upload-artifact@v3
+        run: |
+          echo "Searching repository for 'upload-artifact@v3'..."
+          grep -R --line-number --hidden --exclude-dir=.git "upload-artifact@v3" || true
+          echo "Searching workflows for any @v3 tags..."
+          grep -R --line-number --hidden --exclude-dir=.git "upload-artifact@" || true
+          echo "Done"
