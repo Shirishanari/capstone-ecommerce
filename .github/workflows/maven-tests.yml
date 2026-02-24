@@ -32,9 +32,9 @@ jobs:
           sudo apt install -y google-chrome-stable
 
       - name: Install matching ChromeDriver
-        uses: nanasess/setup-chromedriver@v1
+        uses: actions/setup-chromedriver@v2
         with:
-          chromedriver-version: latest
+          chrome-version: 'latest'   # v2 automatically detects installed Chrome version
 
       - name: Start frontend app
         run: |
