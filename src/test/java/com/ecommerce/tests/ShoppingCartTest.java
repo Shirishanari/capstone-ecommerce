@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -165,8 +166,20 @@ public class ShoppingCartTest {
     // 7. Empty Cart Check
     @Test
     public void testEmptyCart() {
+        // try clearing the cart via API call in browser context (authenticated by token)
+        try {
+            ((JavascriptExecutor) driver).executeAsyncScript(
+                    "var callback = arguments[0];" +
+                    "fetch('/api/cart/clear', {method:'DELETE', headers:{'Content-Type':'application/json','Authorization':'Bearer '+localStorage.getItem('token')}})" +
+                    ".then(function(){callback();}).catch(function(){callback();});"
+            );
+        } catch (Exception e) {
+            // ignore; fallback to UI removal below
+        }
+
         driver.get(TestUtil.BASE_URL + "cart");
-        // repeatedly click any remove/delete buttons until none left
+
+        // if the above fetch didn't work, fallback to clicking remove buttons
         for (int attempts = 0; attempts < 5; attempts++) {
             List<WebElement> removeBtns = driver.findElements(By.xpath(
                     "//button[contains(text(),'Remove') or contains(text(),'Delete')]"
@@ -175,7 +188,6 @@ public class ShoppingCartTest {
             for (WebElement btn : removeBtns) {
                 try { btn.click(); } catch (Exception ignored) {}
             }
-            // allow page load after each round
             try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         }
         driver.navigate().refresh();
