@@ -14,6 +14,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.ecommerce.tests.TestUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PurchaseFlowSuiteTest {
@@ -127,8 +128,9 @@ public class PurchaseFlowSuiteTest {
 
     @Test
     public void testNavbarVisible() {
-        Assert.assertTrue(driver.getPageSource().contains("Home")
-                || driver.getPageSource().contains("Cart"));
+        // navbar element should exist on page
+        List<WebElement> navs = driver.findElements(By.tagName("nav"));
+        Assert.assertTrue(navs.size() > 0, "Navbar element not found");
     }
 
     @Test

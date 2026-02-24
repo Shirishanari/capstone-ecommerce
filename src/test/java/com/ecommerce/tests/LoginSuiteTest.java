@@ -13,6 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.ecommerce.tests.TestUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginSuiteTest {
@@ -182,13 +183,18 @@ public class LoginSuiteTest {
     @Test
     public void testMultipleAttempts() {
         for(int i = 0; i < 3; i++) {
-            driver.findElement(By.name("email")).clear();
-            driver.findElement(By.name("password")).clear();
+            WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
+            WebElement password = driver.findElement(By.name("password"));
 
-            driver.findElement(By.name("email")).sendKeys("testuser@gmail.com");
-            driver.findElement(By.name("password")).sendKeys("wrongpass");
+            email.clear();
+            password.clear();
+
+            email.sendKeys("testuser@gmail.com");
+            password.sendKeys("wrongpass");
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
+            // ensure we are back on login page before next iteration
+            wait.until(ExpectedConditions.urlContains("login"));
         }
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }

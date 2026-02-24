@@ -48,6 +48,17 @@ jobs:
         cd frontend
         npm install
 
+    - name: Seed database
+      env:
+        MONGODB_URI: mongodb://localhost:27017/ecommerce
+      run: |
+        # populate products and default user
+        npm --prefix backend run seed
+        # create test user via API (ignore errors if already exists)
+        curl -s -X POST http://localhost:5000/api/auth/register \
+          -H "Content-Type: application/json" \
+          -d '{"name":"Test User","email":"testuser@gmail.com","password":"password123"}' || true
+
     - name: Start backend and frontend servers
       env:
         MONGODB_URI: mongodb://localhost:27017/ecommerce
