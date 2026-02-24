@@ -23,18 +23,41 @@ jobs:
         sudo apt update
         sudo apt install -y google-chrome-stable
 
+    - name: Install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+        echo "Detected Chrome version: $CHROME_VERSION"
+        CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+        echo "Installing ChromeDriver version: $CHROMEDRIVER_VERSION"
+        wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip -P ~/
+        unzip ~/chromedriver_linux64.zip -d ~/
+        sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
+        chromedriver --version
+
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
     - name: Install frontend dependencies
-      run: npm install
+      run: npm ci
 
-    - name: Start application
+    - name: Start frontend app
       run: |
-        npm start &
-        sleep 20
+        nohup npm start > frontend.log 2>&1 &
+        echo "Waiting for frontend to start on port 3000..."
+        n=0
+        until $(curl --output /dev/null --silent --head --fail http://localhost:3000); do
+          n=$((n+1))
+          if [ $n -ge 30 ]; then
+            echo "Frontend did not start in time!"
+            cat frontend.log
+            exit 1
+          fi
+          sleep 2
+        done
+        echo "Frontend is up!"
 
     - name: Build Maven project
       run: mvn clean install -DskipTests
