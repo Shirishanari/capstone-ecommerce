@@ -94,3 +94,22 @@ jobs:
       run: |
         # ensure tests know where the frontend is running
         BASE_URL=http://localhost:3000/ mvn test
+
+    - name: Generate Allure report
+      run: |
+        # generate HTML report from Allure results
+        mvn io.qameta.allure:allure-maven:2.12.0:report \
+          -Dallure.results.directory=target/allure-results \
+          -Dallure.report.directory=allure-report || true
+
+    - name: Upload Allure report artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: allure-report
+
+    - name: Deploy Allure report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./allure-report
