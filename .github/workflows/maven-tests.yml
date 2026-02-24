@@ -25,12 +25,17 @@ jobs:
 
     - name: Install ChromeDriver
       run: |
-        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-        echo "Detected Chrome version: $CHROME_VERSION"
-        CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+        # Get Chrome major version only
+        CHROME_MAJOR=$(google-chrome --version | grep -oP '\d+' | head -1)
+        echo "Detected Chrome major version: $CHROME_MAJOR"
+
+        # Get latest matching ChromeDriver
+        CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAJOR)
         echo "Installing ChromeDriver version: $CHROMEDRIVER_VERSION"
+
+        # Download & install
         wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip -P ~/
-        unzip ~/chromedriver_linux64.zip -d ~/
+        unzip -o ~/chromedriver_linux64.zip -d ~/
         sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
         chromedriver --version
@@ -64,3 +69,5 @@ jobs:
 
     - name: Run Selenium Tests
       run: mvn test
+      env:
+        DISPLAY: :99
