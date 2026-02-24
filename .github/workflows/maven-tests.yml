@@ -26,10 +26,17 @@ jobs:
     - name: Install frontend dependencies
       run: npm ci
 
-    - name: Install Chrome + ChromeDriver
+    - name: Install Google Chrome 116
+      run: |
+        sudo apt update
+        sudo apt install -y wget unzip
+        wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_116.0.5845.188-1_amd64.deb
+        sudo apt install -y ./google-chrome-stable_116.0.5845.188-1_amd64.deb
+
+    - name: Install matching ChromeDriver 116
       uses: nanasess/setup-chromedriver@v1
       with:
-        chrome-version: stable   # automatically picks a driver matching Chrome
+        chromedriver-version: 116.0.5845.96  # must match installed Chrome version
 
     - name: Start frontend app
       run: |
