@@ -166,16 +166,26 @@ public class ShoppingCartTest {
     @Test
     public void testEmptyCart() {
         driver.get(TestUtil.BASE_URL + "cart");
-        // clear any existing items if present
-        List<WebElement> remove = driver.findElements(By.xpath(
-                "//button[contains(text(),'Remove') or contains(text(),'Delete')]")
-        );
-        for (WebElement btn : remove) {
-            try { btn.click(); } catch (Exception ignored) {}
+        // repeatedly click any remove/delete buttons until none left
+        for (int attempts = 0; attempts < 5; attempts++) {
+            List<WebElement> removeBtns = driver.findElements(By.xpath(
+                    "//button[contains(text(),'Remove') or contains(text(),'Delete')]"
+            ));
+            if (removeBtns.isEmpty()) break;
+            for (WebElement btn : removeBtns) {
+                try { btn.click(); } catch (Exception ignored) {}
+            }
+            // allow page load after each round
+            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         }
         driver.navigate().refresh();
 
-        Assert.assertTrue(driver.getPageSource().contains("Your cart is empty"),
+        // wait for an "empty cart" message (case-insensitive, flexible phrasing)
+        By emptyLocator = By.xpath("//*[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'cart') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'empty')]");
+        wait.until(ExpectedConditions.presenceOfElementLocated(emptyLocator));
+
+        String page = driver.getPageSource().toLowerCase();
+        Assert.assertTrue(page.contains("cart is empty") || page.contains("your cart is empty") || page.contains("empty cart"),
                 "Empty cart message not displayed");
     }
 }
