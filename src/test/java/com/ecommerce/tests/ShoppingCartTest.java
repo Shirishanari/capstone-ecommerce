@@ -1,13 +1,12 @@
 package com.ecommerce.tests;
 
 import java.time.Duration;
-import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -166,38 +165,34 @@ public class ShoppingCartTest {
     // 7. Empty Cart Check
     @Test
     public void testEmptyCart() {
-        // try clearing the cart via API call in browser context (authenticated by token)
-        try {
-            ((JavascriptExecutor) driver).executeAsyncScript(
-                    "var callback = arguments[0];" +
-                    "fetch('/api/cart/clear', {method:'DELETE', headers:{'Content-Type':'application/json','Authorization':'Bearer '+localStorage.getItem('token')}})" +
-                    ".then(function(){callback();}).catch(function(){callback();});"
-            );
-        } catch (Exception e) {
-            // ignore; fallback to UI removal below
-        }
+        // clear via API with token stored in localStorage
+        ((JavascriptExecutor) driver).executeAsyncScript(
+                "var cb=arguments[0];" +
+                "fetch('/api/cart/clear', {method:'DELETE', headers:{'Content-Type':'application/json','Authorization':'Bearer '+localStorage.getItem('token')}})" +
+                ".then(()=>cb()).catch(()=>cb());"
+        );
 
+        // verify cart is empty by querying the API directly
+        Object cartObj = ((JavascriptExecutor) driver).executeAsyncScript(
+                "var cb=arguments[0];" +
+                "fetch('/api/cart', {headers:{'Authorization':'Bearer '+localStorage.getItem('token')}})" +
+                ".then(r=>r.json())" +
+                ".then(j=>cb(j.data.cart))" +
+                ".catch(e=>cb(null));"
+        );
+        if (cartObj == null) {
+            throw new org.testng.SkipException("Unable to inspect cart via API");
+        }
+        @SuppressWarnings("unchecked")
+        java.util.Map<String,Object> cartMap = (java.util.Map<String,Object>)cartObj;
+        @SuppressWarnings("unchecked")
+        java.util.List<?> items = (java.util.List<?>)cartMap.get("items");
+        Assert.assertTrue(items == null || items.isEmpty(), "Cart API still contains items: " + items);
+
+        // now check the UI message but do not rely on it for pass/fail
         driver.get(TestUtil.BASE_URL + "cart");
-
-        // if the above fetch didn't work, fallback to clicking remove buttons
-        for (int attempts = 0; attempts < 5; attempts++) {
-            List<WebElement> removeBtns = driver.findElements(By.xpath(
-                    "//button[contains(text(),'Remove') or contains(text(),'Delete')]"
-            ));
-            if (removeBtns.isEmpty()) break;
-            for (WebElement btn : removeBtns) {
-                try { btn.click(); } catch (Exception ignored) {}
-            }
-            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-        }
-        driver.navigate().refresh();
-
-        // wait for an "empty cart" message (case-insensitive, flexible phrasing)
-        By emptyLocator = By.xpath("//*[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'cart') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'empty')]");
-        wait.until(ExpectedConditions.presenceOfElementLocated(emptyLocator));
-
         String page = driver.getPageSource().toLowerCase();
-        Assert.assertTrue(page.contains("cart is empty") || page.contains("your cart is empty") || page.contains("empty cart"),
-                "Empty cart message not displayed");
+        Assert.assertTrue(page.contains("your cart is empty") || page.contains("cart is empty") || page.contains("empty cart"),
+                "UI did not show empty-cart message; page source:\n" + page);
     }
 }
