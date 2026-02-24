@@ -28,16 +28,44 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install frontend dependencies
-      run: npm install
-
-    - name: Start application
+    - name: Install backend dependencies
       run: |
-        npm start &
-        sleep 20
+        cd backend
+        npm install
+
+    - name: Install frontend dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Start backend and frontend servers
+      run: |
+        # launch both servers in background
+        cd backend && npm start &
+        cd ../frontend && npm start &
+        # wait for backend to accept connections
+        echo "Waiting for backend on port 5000..."
+        for i in {1..30}; do
+          if curl -s http://localhost:5000/api/products > /dev/null; then
+            echo "Backend is up";
+            break;
+          fi
+          sleep 1
+        done
+        # wait for frontend to accept connections
+        echo "Waiting for frontend on port 3000..."
+        for i in {1..30}; do
+          if curl -s http://localhost:3000/ > /dev/null; then
+            echo "Frontend is up";
+            break;
+          fi
+          sleep 1
+        done
 
     - name: Build Maven project
       run: mvn clean install -DskipTests
 
     - name: Run Selenium Tests
-      run: mvn test
+      run: |
+        # ensure tests know where the frontend is running
+        BASE_URL=http://localhost:3000/ mvn test

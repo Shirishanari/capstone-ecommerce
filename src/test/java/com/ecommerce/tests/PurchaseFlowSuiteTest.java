@@ -37,7 +37,7 @@ public class PurchaseFlowSuiteTest {
         driver.manage().window().maximize();
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driver.get("http://localhost:3000/");
+        driver.get(TestUtil.BASE_URL);
     }
 
     @AfterMethod
@@ -93,14 +93,14 @@ public class PurchaseFlowSuiteTest {
 
     @Test
     public void testCheckoutProtectedRoute() {
-        driver.get("http://localhost:3000/checkout");
+        driver.get(TestUtil.BASE_URL + "checkout");
         Assert.assertTrue(driver.getCurrentUrl().contains("login")
                 || driver.getCurrentUrl().contains("checkout"));
     }
 
     @Test
     public void testLoginPageLoads() {
-        driver.get("http://localhost:3000/login");
+        driver.get(TestUtil.BASE_URL + "login");
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
     }
 
@@ -133,7 +133,7 @@ public class PurchaseFlowSuiteTest {
 
     @Test
     public void testLoginFieldsVisible() {
-        driver.get("http://localhost:3000/login");
+        driver.get(TestUtil.BASE_URL + "login");
 
         WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
         WebElement password = driver.findElement(By.name("password"));
@@ -150,13 +150,13 @@ public class PurchaseFlowSuiteTest {
     @Test
     public void testProductsPageAccessibleAfterLogin() {
         login();
-        driver.get("http://localhost:3000/");
+        driver.get(TestUtil.BASE_URL);
         Assert.assertTrue(driver.getPageSource().contains("Products"));
     }
 
     @Test
     public void testNoBrokenHomeRoute() {
-        driver.get("http://localhost:3000/");
+        driver.get(TestUtil.BASE_URL);
         Assert.assertTrue(driver.getTitle().length() > 0);
     }
 }

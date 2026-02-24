@@ -33,7 +33,7 @@ public class LoginSuiteTest {
         options.addArguments("--disable-gpu");
 
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:3000/");
+        driver.get(TestUtil.BASE_URL);
         driver.manage().window().maximize();
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));

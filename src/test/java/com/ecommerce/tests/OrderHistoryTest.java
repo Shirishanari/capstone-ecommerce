@@ -40,7 +40,7 @@ public class OrderHistoryTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         // Navigate to website
-        driver.get("http://localhost:3000/");
+        driver.get(TestUtil.BASE_URL);
 
         // Login
         wait.until(ExpectedConditions.elementToBeClickable(
@@ -62,7 +62,7 @@ public class OrderHistoryTest {
         System.out.println("Login successful");
 
         // Go to Orders page directly
-        driver.get("http://localhost:3000/orders");
+        driver.get(TestUtil.BASE_URL + "orders");
 
         // Wait for Orders page load
         wait.until(ExpectedConditions.or(

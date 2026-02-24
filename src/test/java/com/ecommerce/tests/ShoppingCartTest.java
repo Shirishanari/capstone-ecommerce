@@ -34,7 +34,7 @@ public class ShoppingCartTest {
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("http://localhost:3000/");
+        driver.get(TestUtil.BASE_URL);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
