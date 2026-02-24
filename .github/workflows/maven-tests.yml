@@ -113,13 +113,8 @@ jobs:
         name: allure-report
         path: allure-report
 
-    - name: Configure GitHub Pages
-      uses: actions/configure-pages@v4
-
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Deploy Allure report to gh-pages branch (peaceiris)
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        path: ./allure-report
-
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v2
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./allure-report
